@@ -1,0 +1,10 @@
+<p>¡Este es un componente Empleado! Nuestros empleados son:</p>
+<ul>
+    <li>{{empleado.nombre}}</li>
+    <button (click)="cambiarNombre('Nuevo nombre')">Poner nuevo nombre</button>
+    <li>{{empleado2.nombre}}</li>
+</ul>
+<input type="text" [(ngModel)]="colorSeleccionado"/>
+<div [ngStyle]="{'background-color': colorSeleccionado,
+                    'width':'200px',
+                    'height':'200px'}"></div>
