@@ -17,7 +17,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl} f
 //y en su constructor (que es el constructor del componente) construimos los objetos que vamos a imprimir en el html 
 export class EmpleadoComponent {
     public miFormulario = new FormGroup({
-      nombre: new FormControl('')
+      nombre: new FormControl('',Validators.required)
     })
 
     nombre = new FormControl('');
@@ -46,8 +46,6 @@ export class EmpleadoComponent {
       if(this.miFormulario.value.nombre != undefined){
         this.empleados.push(new Empleado(this.miFormulario.value.nombre))
       }
-
-
     }
 
     cambiarNombre(nuevoNombre:string){

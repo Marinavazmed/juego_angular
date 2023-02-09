@@ -18,7 +18,8 @@
 
 <form [formGroup]="miFormulario" (ngSubmit)="saveData()">
     <label>Nombre del nuevo empleado: </label>
-    <input formControlName="nombre" type="text">
+    <input formControlName="nombre" type="text" required>
+    <span *ngIf="miFormulario.get('nombre')?.touched && miFormulario.get('nombre')?.hasError('required')">Es necesario añadir un nombre</span>
     <button type="submit" [disabled]="!miFormulario.valid">Guardar</button>
 </form>
 <nav>
