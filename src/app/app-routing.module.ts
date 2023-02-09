@@ -6,6 +6,9 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {path: 'empleado', component: EmpleadoComponent},
+  //se pueden pasar parámetros a traves de la url con la sintaxis:
+  //{path: 'coche/:id'...}
+  //En el constructor del componente debo declarar el id + usar actRoute
   {path: '', component: HomeComponent},
   {path: '**', component: EmpleadoComponent}
 ];

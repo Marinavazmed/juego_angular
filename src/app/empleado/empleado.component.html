@@ -1,13 +1,26 @@
 <p>¡Este es un componente Empleado! Nuestros empleados son:</p>
 <ul>
+    <p>Cambio de nombre:</p>
     <li>{{empleado.nombre}}</li>
     <button (click)="cambiarNombre('Nuevo nombre')">Poner nuevo nombre</button>
-    <li>{{empleado2.nombre}}</li>
+</ul>
+<p>Lista de empleados:</p>
+<ul>
+    <li *ngFor = "let empleado of empleados">
+            {{empleado.nombre}}
+    </li>
 </ul>
 <input type="text" [(ngModel)]="colorSeleccionado"/>
 <div [ngStyle]="{'background-color': colorSeleccionado,
                     'width':'200px',
                     'height':'200px'}"></div>
+
+
+<form (ngSubmit)="saveData()">
+    <label>Nombre del nuevo empleado: </label>
+    <input [formControl]="name" type="text">
+    <button>Guardar</button>
+</form>
 <nav>
     <a [routerLink]="['']">Home</a>
 </nav>
