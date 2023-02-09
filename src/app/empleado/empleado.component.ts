@@ -16,6 +16,10 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl} f
 //Este es el constructor del COMPONENTE basado en empleado. Tiene una variable empleado de tipo Empleado,
 //y en su constructor (que es el constructor del componente) construimos los objetos que vamos a imprimir en el html 
 export class EmpleadoComponent {
+    public miFormulario = new FormGroup({
+      nombre: new FormControl('')
+    })
+
     nombre = new FormControl('');
     public empleados:Array<Empleado>
     public empleado:Empleado;
@@ -38,10 +42,12 @@ export class EmpleadoComponent {
 
 
     saveData(){
-      console.log(this.nombre.value)
-      if(this.nombre.value!=null){
-        this.empleados.push(new Empleado(this.nombre.value))
+      console.log(this.miFormulario.value.nombre)
+      if(this.miFormulario.value.nombre != undefined){
+        this.empleados.push(new Empleado(this.miFormulario.value.nombre))
       }
+
+
     }
 
     cambiarNombre(nuevoNombre:string){

@@ -16,10 +16,10 @@
                     'height':'200px'}"></div>
 
 
-<form (ngSubmit)="saveData()">
+<form [formGroup]="miFormulario" (ngSubmit)="saveData()">
     <label>Nombre del nuevo empleado: </label>
-    <input [formControl]="name" type="text">
-    <button>Guardar</button>
+    <input formControlName="nombre" type="text">
+    <button type="submit" [disabled]="!miFormulario.valid">Guardar</button>
 </form>
 <nav>
     <a [routerLink]="['']">Home</a>
