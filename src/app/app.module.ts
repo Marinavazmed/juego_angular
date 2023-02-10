@@ -5,12 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmpleadoComponent } from './empleado/empleado.component';
 import { HomeComponent } from './home/home.component';
+import { PatineteComponent } from './patinete/patinete.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmpleadoComponent,
-    HomeComponent
+    HomeComponent,
+    PatineteComponent
   ],
   imports: [
     BrowserModule,
@@ -18,6 +21,7 @@ import { HomeComponent } from './home/home.component';
     //formularios declarados:
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
 
   ],
   providers: [],
