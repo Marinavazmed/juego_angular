@@ -4,7 +4,7 @@ export class Patinete{
         public tipo:string,
         public precio_desbloque:number,
         public precio_minuto:number
-    ){}
+        ){}
 
     public toString = () : String => {
         return  this.tipo;
