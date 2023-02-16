@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EmpleadoComponent } from './empleado/empleado.component';
 import { HomeComponent } from './home/home.component';
 import { PatineteComponent } from './patinete/patinete.component';
+import { PrincipalComponent } from './principal/principal.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   //En el constructor del componente debo declarar el id + usar actRoute
   {path: 'patinete', component: PatineteComponent},
   {path: '', component: HomeComponent},
+  {path: 'principal', component: PrincipalComponent},
   {path: '**', component: EmpleadoComponent}
 ];
 
