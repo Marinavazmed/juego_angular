@@ -11,14 +11,27 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PrincipalComponent {
   public frases:Array<any>
+  public seleccionada:Array<any>
   constructor(private http:HttpClient, private _peticion: FraseService){
     this.frases = []
+    this.seleccionada = []
   }
+
 
   ngOnInit():void{
     this._peticion.getFrases().subscribe(data=>{    
-      console.log(data)})
+      this.frases = data  
+      this.seleccionada = this.getAleatoria()
+      console.log(this.seleccionada)
+    })
+
   }
+
+  getAleatoria(): Array<any>{
+    const fraseSeleccionada = this.frases[Math.floor(Math.random() * this.frases.length)];
+    return (fraseSeleccionada.frase.toString()).split('')
+  }
+
 }
 
 

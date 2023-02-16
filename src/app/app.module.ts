@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { PatineteComponent } from './patinete/patinete.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PrincipalComponent } from './principal/principal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { PrincipalComponent } from './principal/principal.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule,
 
   ],
   providers: [],
