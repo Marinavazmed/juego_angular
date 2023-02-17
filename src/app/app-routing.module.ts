@@ -9,9 +9,9 @@ const routes: Routes = [
   //se pueden pasar parámetros a traves de la url con la sintaxis:
   //{path: 'coche/:id'...}
   //En el constructor del componente debo declarar el id + usar actRoute
-  {path: '', component: HomeComponent},
   {path: 'principal', component: PrincipalComponent},
   {path: 'ranking/:puntuacion', component: RankingComponent},
+  {path: '', component: HomeComponent},
   {path: '**', component: HomeComponent}
 ];
 

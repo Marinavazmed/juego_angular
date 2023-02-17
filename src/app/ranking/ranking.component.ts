@@ -14,9 +14,7 @@ export class RankingComponent {
 
   //se supone que recoge el parámetro correspondiente a la route
   constructor(private route: ActivatedRoute) {
-    this.route.queryParams.subscribe(params => {
-        this.puntuacion = params['param1'];
-    });
+    this.puntuacion = this.route.snapshot.params['puntuacion']
     console.log(this.puntuacion)
 }
 
