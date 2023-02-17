@@ -1,17 +1,24 @@
 <h4>¡AQUÍ ESTARÁ NUESTRO JUEGO!</h4>
-<p>Nuestras frases son: </p>
+<p>Nuestras frases disponibles son: </p>
 <ul>
     <li *ngFor="let frase of frases">
         {{ frase.frase }}
     </li>
 </ul>
 <p>La frase seleccionada aleatoriamente para esta pantalla (en array) es:</p>
-<p>{{ seleccionada }}</p>
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
+<p>{{ seleccionada.frase.split('') }}</p>
+<p>Pista:</p>
+<p>{{ seleccionada.pista_inicial }}</p>
+
+<!--Carta (prueba bootstrap)-->
+<div class="container-fluid">
+  <div *ngFor="let char of seleccionada.frase.split('')" class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
+      <h5 class="card-title">{{ char }}</h5>
   </div>
+</div>
+
+<!--Interfaz de posición fija-->
+<div class="container-fluid">
+  <p>INTERFAZ</p>
+</div>
