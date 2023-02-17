@@ -11,7 +11,7 @@ const routes: Routes = [
   //En el constructor del componente debo declarar el id + usar actRoute
   {path: '', component: HomeComponent},
   {path: 'principal', component: PrincipalComponent},
-  {path: 'ranking/:id', component: RankingComponent},
+  {path: 'ranking/:puntuacion', component: RankingComponent},
   {path: '**', component: HomeComponent}
 ];
 

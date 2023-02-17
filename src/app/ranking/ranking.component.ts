@@ -10,7 +10,15 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 })
 export class RankingComponent {
   username = new FormControl('')
+  puntuacion = ""
 
+  //se supone que recoge el parámetro correspondiente a la route
+  constructor(private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+        this.puntuacion = params['param1'];
+    });
+    console.log(this.puntuacion)
+}
 
 
   muestraNombre(){
