@@ -21,6 +21,7 @@ export class PrincipalComponent {
     this.frases = []
     this.seleccionada = new Frase("","")
     this.pista = ""
+    //Iniciamos usuario con 1 punto para hacer las pruebas. NO DEFINITIVO
     this.usuario = new Usuario("",1,0)
   }
 
@@ -35,18 +36,25 @@ export class PrincipalComponent {
   }
 
 
-  //Devuelve una frase aleatoria de las recibidas por el servidor
+  //Devuelve un OBJETO frase aleatorio de las recibidas por el servidor
   getAleatoria(): Frase{
     const fraseSeleccionada = this.frases[Math.floor(Math.random() * this.frases.length)];
     return fraseSeleccionada
   }
 
   //Compra una letra, gasta puntos del usuario. 
-  //Esta función es para un onclick
+  //Esta función está en onclick
   comprarLetra():void{
     this.usuario.puntuacion = this.usuario.puntuacion -1
   }
 
+  //Función para generar la siguiente frase. Funciona al 
+  //usar el botón "saltar a siguiente pregunta por falta de puntos"
+  //Y opción de reutilizar esta función al adivinar la frase
+  siguienteFrase():void{
+    this.seleccionada = this.getAleatoria()
+    this.pista = this.seleccionada.pista_inicial
+  }
 }
 
 
