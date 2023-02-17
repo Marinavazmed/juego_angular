@@ -1,4 +1,6 @@
 <p>Página de ránking</p>
-<label for="usernme">Nombre de usuario: </label>
-<input id="username" type="text" [formControl]="username">
-<button class="btn btn-primary" (click)="muestraNombre()">Enviar puntuación</button>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+<label for="username">Nombre de usuario: </label>
+<input formControlName="usuario" id="username" type="text">
+<button class="btn btn-primary">Enviar puntuación</button>
+</form>

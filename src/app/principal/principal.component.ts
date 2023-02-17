@@ -56,11 +56,15 @@ export class PrincipalComponent {
   comprarLetraVocal():void{
     if(this.usuario.puntuacion>0){
       this.usuario.puntuacion = this.usuario.puntuacion -25
+    }else{
+      this.usuario.puntuacion = 0
     }
   }
   comprarLetraConsonante():void{
     if(this.usuario.puntuacion>0){
       this.usuario.puntuacion = this.usuario.puntuacion -1
+    }else{
+      this.usuario.puntuacion = 0
     }
   }
 
