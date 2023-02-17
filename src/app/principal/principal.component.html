@@ -21,9 +21,19 @@
 <!--Interfaz de posición fija-->
 <div class="container-fluid">
   <p>INTERFAZ</p>
-  <p>COMPRAR LETRA</p>
-  <p>PUNTOS INICIALES: {{ usuario.puntos_iniciales }}</p>
-  <p>PUNTOS DISPONIBLES: {{ usuario.puntuacion }} </p>
+  <p>PUNTOS INICIALES: {{ usuario.puntos_iniciales }} PUNTOS DISPONIBLES: {{ usuario.puntuacion }}</p>
+  <div class="container-fluid">
+    <div *ngFor="let vocal of vocales" class="card" style="width: 18rem;" (click)="comprarLetraVocal()">
+      <div class="card-body">
+        <h5 class="card-title">{{ vocal }}</h5>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div *ngFor="let consonante of consonantes" class="card" style="width: 18rem;" (click)="comprarLetraConsonante()">
+      <div class="card-body">
+        <h5 class="card-title">{{ consonante }}</h5>
+    </div>
+  </div>
   <button class="btn btn-danger" (click)="siguienteFrase()" *ngIf="usuario.puntuacion<=0">Saltar pregunta por falta de puntos</button>
-  <button class="btn btn-primary" (click)="comprarLetra()">Comprar letra</button>
+  </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FraseService } from '../frase-service.service';
+import { UsuarioService } from '../usuario-service.service';
 import { HttpClient } from '@angular/common/http';
 import { Frase } from './frase';
 import { Usuario } from './usuario';
@@ -16,13 +17,19 @@ export class PrincipalComponent {
   public seleccionada:Frase
   public pista:String
   public usuario:Usuario
+  public nivel:Number
+  public vocales:Array<any>
+  public consonantes: Array<any>
 
   constructor(private http:HttpClient, private _peticion: FraseService){
     this.frases = []
     this.seleccionada = new Frase("","")
     this.pista = ""
     //Iniciamos usuario con 1 punto para hacer las pruebas. NO DEFINITIVO
-    this.usuario = new Usuario("",1,0)
+    this.usuario = new Usuario("",100,0)
+    this.nivel = 1
+    this.vocales = ['a','e','i','o','u']
+    this.consonantes = ['b','c','d','f','g','h', 'j','k','l','m','n','ñ','p','q','r','s','t','v','w','x','y','z']
   }
 
 
@@ -44,8 +51,15 @@ export class PrincipalComponent {
 
   //Compra una letra, gasta puntos del usuario. 
   //Esta función está en onclick
-  comprarLetra():void{
-    this.usuario.puntuacion = this.usuario.puntuacion -1
+  comprarLetraVocal():void{
+    if(this.usuario.puntuacion>0){
+      this.usuario.puntuacion = this.usuario.puntuacion -25
+    }
+  }
+  comprarLetraConsonante():void{
+    if(this.usuario.puntuacion>0){
+      this.usuario.puntuacion = this.usuario.puntuacion -1
+    }
   }
 
   //Función para generar la siguiente frase. Funciona al 
