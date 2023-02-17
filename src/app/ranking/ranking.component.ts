@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'ranking',
@@ -9,6 +10,8 @@ import { FormControl } from '@angular/forms';
 })
 export class RankingComponent {
   username = new FormControl('')
+
+
 
   muestraNombre(){
     //Aquí irá la petición POST al servidor. Por ahora sólo imprime el valor
