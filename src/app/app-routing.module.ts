@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PrincipalComponent } from './principal/principal.component';
+import { RankingComponent } from './ranking/ranking.component';
 
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
   //En el constructor del componente debo declarar el id + usar actRoute
   {path: '', component: HomeComponent},
   {path: 'principal', component: PrincipalComponent},
+  {path: 'principal/ranking', component: RankingComponent},
   {path: '**', component: HomeComponent}
 ];
 

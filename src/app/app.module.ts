@@ -9,6 +9,7 @@ import { PatineteComponent } from './patinete/patinete.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PrincipalComponent } from './principal/principal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RankingComponent } from './ranking/ranking.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EmpleadoComponent,
     HomeComponent,
     PatineteComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    RankingComponent
   ],
   imports: [
     BrowserModule,

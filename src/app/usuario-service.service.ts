@@ -15,7 +15,10 @@ export class UsuarioService {
     this.url = "http://localhost:8000/usuario/";
 	}
 
-	getFrases(): Observable<any[]>{
+	getUsuarios(): Observable<any[]>{
 		return this._http.get<any[]>(this.url);
 	}
+
+    //aquí petición post
+
 }

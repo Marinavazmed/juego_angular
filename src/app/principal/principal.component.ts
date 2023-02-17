@@ -38,6 +38,8 @@ export class PrincipalComponent {
       this.frases = data  
       this.seleccionada = this.getAleatoria()
       this.pista = this.seleccionada.pista_inicial
+      //aquí falta añadir el constructor del último usuario creado mediante POST
+      //Puede enviarse 
     })
 
   }
