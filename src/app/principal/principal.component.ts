@@ -9,6 +9,10 @@ import { Usuario } from './usuario';
   selector: 'principal',
   templateUrl: './principal.component.html',
   styles: [
+    '.roulette-container {position: relative; width: 800px; margin: 50px auto;}',
+    '.roulette-list { display: flex; flex-wrap: wrap; justify-content: center; margin: 0; padding: 0; list-style: none; text-align: center; font-size: 24px;}',
+    '.roulette-list li {display: inline-block; width: 40px; height: 40px; line-height: 40px; background-color: #fff; color: #000; border-radius: 50%; margin: 5px; box-shadow: 1px 1px 5px #000; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;}',
+    '.roulette-list li:hover { transform: scale(1.2); box-shadow: 2px 2px 10px #000;}'
   ],
   providers: [FraseService]
 })
@@ -75,7 +79,16 @@ export class PrincipalComponent {
     this.seleccionada = this.getAleatoria()
     this.pista = this.seleccionada.pista_inicial
   }
+
+  ocultar(consonante:string){
+    if(this.usuario.puntuacion>0){
+      document.getElementById(consonante)?.setAttribute("style", "display:none;")
+    }
+
+  }
+
 }
+
 
 
 

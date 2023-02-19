@@ -1,44 +1,52 @@
 <h4>¡AQUÍ ESTARÁ NUESTRO JUEGO!</h4>
 <p>Nuestras frases disponibles son: </p>
 <ul>
-    <li *ngFor="let frase of frases">
-        {{ frase.frase }}
-    </li>
+  <li *ngFor="let frase of frases">
+    {{ frase.frase }}
+  </li>
 </ul>
 <p>La frase seleccionada aleatoriamente para esta pantalla (en array) es:</p>
 <p>{{ seleccionada.frase.split('') }}</p>
 <p>Pista:</p>
 <p>{{ seleccionada.pista_inicial }}</p>
 
+
+<!--PRUEBA BOOTSTRAP-->
 <!--Carta (prueba bootstrap)-->
 <div class="container-fluid">
   <div *ngFor="let char of seleccionada.frase.split('')" class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">{{ char }}</h5>
+    </div>
   </div>
-</div>
+  <!--FIN PRUEBA BOOTSTRAP-->
 
-<!--Interfaz de posición fija-->
-<div class="container-fluid">
+  <!--PRUEBA COMPRAR-->
   <p>INTERFAZ</p>
   <p>PUNTOS INICIALES: {{ usuario.puntos_iniciales }} PUNTOS DISPONIBLES: {{ usuario.puntuacion }}</p>
-  <div class="container-fluid">
-    <div *ngFor="let vocal of vocales" class="card" style="width: 18rem;" (click)="comprarLetraVocal()">
-      <div class="card-body">
-        <h5 class="card-title">{{ vocal }}</h5>
-    </div>
+  <p>VOCALES</p>
+  <div class="roulette-container container-fluid">
+    <ul class="roulette-list">
+      <li *ngFor="let vocal of vocales" [attr.id]="vocal" (click)="comprarLetraVocal()" (click)="ocultar(vocal)">{{vocal}}</li>
+    </ul>
   </div>
-  <div class="container-fluid">
-    <div *ngFor="let consonante of consonantes" class="card" style="width: 18rem;" (click)="comprarLetraConsonante()">
-      <div class="card-body">
-        <h5 class="card-title">{{ consonante }}</h5>
-    </div>
+  <p>CONSONANTES</p>
+  <div class="roulette-container container-fluid">
+    <ul class="roulette-list">
+      <li *ngFor="let consonante of consonantes" [attr.id]="consonante" (click)="comprarLetraConsonante()"
+        (click)="ocultar(consonante)">{{consonante}}</li>
+    </ul>
   </div>
-  <button class="btn btn-danger" (click)="siguienteFrase()" *ngIf="usuario.puntuacion<=0">Saltar pregunta por falta de puntos</button>
-  </div>
-</div>
 
-<!--PRUEBA FIN-->
-<nav>
-  <a  class="btn btn-info" [routerLink]="['/ranking/', usuario.puntuacion]">Ir al ránking</a>
-</nav>
+  <!--fin prueba COMPRAR-->
+
+  <!--Interfaz de posición fija-->
+  <div class="container-fluid">
+    <div class="container-fluid">
+      <button class="btn btn-danger" (click)="siguienteFrase()" *ngIf="usuario.puntuacion<=0">Saltar pregunta por
+        falta de puntos</button>
+    </div>
+    <nav>
+      <a class="btn btn-info" [routerLink]="['/ranking/', usuario.puntuacion]">Ir al ránking</a>
+    </nav>
+  </div>
