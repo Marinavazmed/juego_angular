@@ -119,6 +119,7 @@ export class PrincipalComponent implements OnInit,AfterViewInit{
   siguienteFrase():void{
     this.seleccionada = this.getAleatoria()
     this.pista = this.seleccionada.pista_inicial
+    this.ngAfterViewInit()
   }
 
   ocultar(consonante:string){
