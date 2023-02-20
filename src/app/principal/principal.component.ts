@@ -39,7 +39,6 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit() {
     this._peticion.getFrases().subscribe(data => {
-
       this.frases = data
       this.seleccionada = this.getAleatoria()
       this.pista = this.seleccionada.pista_inicial
