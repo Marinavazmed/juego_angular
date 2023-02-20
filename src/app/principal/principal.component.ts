@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FraseService } from '../frase-service.service';
 import { UsuarioService } from '../usuario-service.service';
 import { HttpClient } from '@angular/common/http';
@@ -12,11 +12,12 @@ import { Usuario } from './usuario';
     '.roulette-container {position: relative; width: 800px; margin: 50px auto;}',
     '.roulette-list { display: flex; flex-wrap: wrap; justify-content: center; margin: 0; padding: 0; list-style: none; text-align: center; font-size: 24px;}',
     '.roulette-list li {display: inline-block; width: 40px; height: 40px; line-height: 40px; background-color: #fff; color: #000; border-radius: 50%; margin: 5px; box-shadow: 1px 1px 5px #000; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;}',
-    '.roulette-list li:hover { transform: scale(1.2); box-shadow: 2px 2px 10px #000;}'
+    '.roulette-list li:hover { transform: scale(1.2); box-shadow: 2px 2px 10px #000;}',
+ 
   ],
   providers: [FraseService]
 })
-export class PrincipalComponent {
+export class PrincipalComponent implements OnInit{
   public frases:Array<Frase>
   public seleccionada:Frase
   public pista:String
@@ -24,6 +25,7 @@ export class PrincipalComponent {
   public nivel:Number
   public vocales:Array<any>
   public consonantes: Array<any>
+  public padre: any
 
   constructor(private http:HttpClient, private _peticion: FraseService){
     this.frases = []
@@ -34,6 +36,7 @@ export class PrincipalComponent {
     this.nivel = 1
     this.vocales = ['a','e','i','o','u']
     this.consonantes = ['b','c','d','f','g','h', 'j','k','l','m','n','ñ','p','q','r','s','t','v','w','x','y','z']
+    this.padre = document.createElement('div')
   }
 
 
@@ -46,6 +49,36 @@ export class PrincipalComponent {
       //Puede enviarse 
     })
 
+    const padre = document.createElement('div');
+    padre.classList.add('roulette-container')
+    let ul = document.createElement('ul');
+    document.body.appendChild(padre);
+    padre.appendChild(ul)
+    let frase = 'La guerra del planeta de los simios';
+    frase = frase.toUpperCase();
+    let contador = 1;
+
+    for (let i = 0; i < frase.length; i++) {
+      let li = document.createElement('li');
+
+      
+      let letra = frase[i];
+      let letraPanel = document.createTextNode(letra);
+      li.appendChild(letraPanel);
+      ul.appendChild(li);
+      if (letra == ' ') {
+        li.classList.add('blue');
+        if (contador == 2) {
+          li.classList.add('intro');
+          contador = 0;
+          
+        }
+        contador++;
+      } else {
+        li.classList.add('white');
+      }
+      console.log(li);
+    }
   }
 
 

@@ -1,0 +1,55 @@
+.roulette-container {
+  font-family: monospace;
+    position: relative;
+    height: 600px;
+    width: 900px;
+    margin: 50px auto;
+    
+  }
+  
+  .roulette-list {
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .roulette-list li {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #fff;
+    color: #000;
+    margin: 5px;
+    box-shadow: 1px 1px 5px #000;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .blue{
+    padding: 10px;
+    display: inline-block;
+    background-color: blue;
+  }
+  .white{
+    padding: 10px;
+    font-size: 2em;
+    margin: 10px;
+    display: inline-block;
+    background-color: grey;
+  }
+  .intro{
+    display: block;
+  }
+  .continua{
+    display: inline-block;
+  }
+  ul{
+    text-align: center;  
+  }
