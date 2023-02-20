@@ -9,7 +9,7 @@ import { Usuario } from './usuario';
   selector: 'principal',
   templateUrl: './principal.component.html',
   styles: [
-    '.roulette-container {position: relative; width: 800px; margin: 50px auto;}',
+    '.roulette-container{position: relative; width: 800px; margin: 50px auto;}',
     '.roulette-list { display: flex; flex-wrap: wrap; justify-content: center; margin: 0; padding: 0; list-style: none; text-align: center; font-size: 24px;}',
     '.roulette-list li {display: inline-block; width: 40px; height: 40px; line-height: 40px; background-color: #fff; color: #000; border-radius: 50%; margin: 5px; box-shadow: 1px 1px 5px #000; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;}',
     '.roulette-list li:hover { transform: scale(1.2); box-shadow: 2px 2px 10px #000;}',
@@ -47,38 +47,37 @@ export class PrincipalComponent implements OnInit{
       this.pista = this.seleccionada.pista_inicial
       //aquí falta añadir el constructor del último usuario creado mediante POST
       //Puede enviarse 
-    })
-
-    const padre = document.createElement('div');
-    padre.classList.add('roulette-container')
-    let ul = document.createElement('ul');
-    document.body.appendChild(padre);
-    padre.appendChild(ul)
-    let frase = 'La guerra del planeta de los simios';
-    frase = frase.toUpperCase();
-    let contador = 1;
-
-    for (let i = 0; i < frase.length; i++) {
-      let li = document.createElement('li');
-
-      
-      let letra = frase[i];
-      let letraPanel = document.createTextNode(letra);
-      li.appendChild(letraPanel);
-      ul.appendChild(li);
-      if (letra == ' ') {
-        li.classList.add('blue');
-        if (contador == 2) {
-          li.classList.add('intro');
-          contador = 0;
-          
+      const padre = document.createElement('div');
+      padre.classList.add('roulette-container-padre')
+      let ul = document.createElement('ul');
+      document.body.appendChild(padre);
+      padre.appendChild(ul)
+      let frase = this.seleccionada.frase
+      frase = frase.toUpperCase();
+      let contador = 1;
+  
+      for (let i = 0; i < frase.length; i++) {
+        let li = document.createElement('li');
+  
+        
+        let letra = frase[i];
+        let letraPanel = document.createTextNode(letra);
+        li.appendChild(letraPanel);
+        ul.appendChild(li);
+        if (letra == ' ') {
+          li.classList.add('blue');
+          if (contador == 2) {
+            li.classList.add('intro');
+            contador = 0;
+            
+          }
+          contador++;
+        } else {
+          li.classList.add('white');
         }
-        contador++;
-      } else {
-        li.classList.add('white');
+        console.log(li);
       }
-      console.log(li);
-    }
+    })
   }
 
 
