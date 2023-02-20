@@ -38,33 +38,36 @@ export class PrincipalComponent implements OnInit,AfterViewInit{
     this.consonantes = ['b','c','d','f','g','h', 'j','k','l','m','n','ñ','p','q','r','s','t','v','w','x','y','z']
   }
   ngAfterViewInit() {
-    this._peticion.getFrases().subscribe(data=>{   
-
+    this._peticion.getFrases().subscribe(data => {   
+      
       this.frases = data  
       this.seleccionada = this.getAleatoria()
       this.pista = this.seleccionada.pista_inicial
       console.log(this.seleccionada)
 
-      //aquí falta añadir el constructor del último usuario creado mediante POST
-      //Puede enviarse 
-      
-      const element = this.panel.nativeElement.querySelector('#panel');
-      console.log(element); // el elemento seleccionado
-      
+      // aquí se comprueba si el panel existe y se elimina
+      const panelExistente = this.panel.nativeElement.querySelector('#panel');
+      if (panelExistente) {
+        panelExistente.remove();
+      }
+
+      // se crea un nuevo panel
       const padre = document.createElement('div');
+      padre.id = 'panel'; // se asigna un ID al panel para que se pueda seleccionar en el futuro
       padre.classList.add('roulette-container')
       let ul = document.createElement('ul');
-      element.appendChild(padre);
+      
+      this.panel.nativeElement.appendChild(padre);
+
       padre.appendChild(ul)
       let frase = this.seleccionada.frase
       console.log(this.seleccionada)
       frase = frase.toUpperCase();
       let contador = 1;
-  
+
       for (let i = 0; i < frase.length; i++) {
         let li = document.createElement('li');
   
-        
         let letra = frase[i];
         let letraPanel = document.createTextNode(letra);
         li.appendChild(letraPanel);
@@ -82,8 +85,8 @@ export class PrincipalComponent implements OnInit,AfterViewInit{
         }
       }
     })
-
   }
+
 
   ngOnInit():void{
    
