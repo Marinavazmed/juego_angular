@@ -36,52 +36,57 @@ export class PrincipalComponent implements OnInit,AfterViewInit{
     this.nivel = 1
     this.vocales = ['a','e','i','o','u']
     this.consonantes = ['b','c','d','f','g','h', 'j','k','l','m','n','ñ','p','q','r','s','t','v','w','x','y','z']
-    this.padre = document.createElement('div')
   }
   ngAfterViewInit() {
-    const element = this.panel.nativeElement.querySelector('#panel');
-    console.log(element); // el elemento seleccionado
-    
-    const padre = document.createElement('div');
-    padre.classList.add('roulette-container')
-    let ul = document.createElement('ul');
-    element.appendChild(padre);
-    padre.appendChild(ul)
-    let frase = "HOLAAA"
-    frase = frase.toUpperCase();
-    let contador = 1;
+    this._peticion.getFrases().subscribe(data=>{   
 
-    for (let i = 0; i < frase.length; i++) {
-      let li = document.createElement('li');
-
-      
-      let letra = frase[i];
-      let letraPanel = document.createTextNode(letra);
-      li.appendChild(letraPanel);
-      ul.appendChild(li);
-      if (letra == ' ') {
-        li.classList.add('blue');
-        if (contador == 2) {
-          li.classList.add('intro');
-          contador = 0;
-          
-        }
-        contador++;
-      } else {
-        li.classList.add('white');
-      }
-    }
-  }
-
-  ngOnInit():void{
-    this._peticion.getFrases().subscribe(data=>{    
       this.frases = data  
       this.seleccionada = this.getAleatoria()
       this.pista = this.seleccionada.pista_inicial
+      console.log(this.seleccionada)
+
       //aquí falta añadir el constructor del último usuario creado mediante POST
       //Puede enviarse 
-
+      
+      const element = this.panel.nativeElement.querySelector('#panel');
+      console.log(element); // el elemento seleccionado
+      
+      const padre = document.createElement('div');
+      padre.classList.add('roulette-container')
+      let ul = document.createElement('ul');
+      element.appendChild(padre);
+      padre.appendChild(ul)
+      let frase = this.seleccionada.frase
+      console.log(this.seleccionada)
+      frase = frase.toUpperCase();
+      let contador = 1;
+  
+      for (let i = 0; i < frase.length; i++) {
+        let li = document.createElement('li');
+  
+        
+        let letra = frase[i];
+        let letraPanel = document.createTextNode(letra);
+        li.appendChild(letraPanel);
+        ul.appendChild(li);
+        if (letra == ' ') {
+          li.classList.add('blue');
+          if (contador == 2) {
+            li.classList.add('intro');
+            contador = 0;
+            
+          }
+          contador++;
+        } else {
+          li.classList.add('white');
+        }
+      }
     })
+
+  }
+
+  ngOnInit():void{
+   
   }
 
 
