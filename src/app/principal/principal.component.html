@@ -17,12 +17,11 @@
 
   <!--PRUEBA COMPRAR-->
 
-  <div class="roulette-container container-fluid" style="border: sol
+  <div class="contenedor_consonantes" style="border: sol
   ;">
-    <ul class="roulette-list">
-      <li *ngFor="let consonante of consonantes" [attr.id]="consonante" (click)="comprarLetraConsonante()"
-        (click)="ocultar(consonante)">{{consonante}}</li>
-    </ul>
+   
+      <span class="consonantes" *ngFor="let consonante of consonantes" [attr.id]="consonante" (click)="comprarLetraConsonante()"
+        (click)="ocultar(consonante)">{{consonante}}</span>
   </div>
   <!--fin prueba COMPRAR-->
 
