@@ -1,1 +1,4 @@
 <p>Esta es la página final, donde se muestra el ránking de jugadores</p>
+<p *ngFor="let usuario of usuarios">
+    <span>{{usuario.usuario}} {{usuario.puntuacion}}</span>
+</p>
