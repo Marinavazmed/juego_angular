@@ -4,6 +4,7 @@ import { UsuarioService } from '../usuario-service.service';
 import { HttpClient } from '@angular/common/http';
 import { Frase } from './frase';
 import { Usuario } from './usuario';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'principal',
@@ -26,8 +27,9 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
   public vocales: Array<any>
   public consonantes: Array<any>
   public padre: any
+  public completaFraseForm!: FormGroup;
 
-  constructor(private http: HttpClient, private _peticion: FraseService, private panel: ElementRef) {
+  constructor(private http: HttpClient, private _peticion: FraseService, private panel: ElementRef, public fb:FormBuilder) {
     this.frases = []
     this.seleccionada = new Frase("", "")
     this.pista = ""
@@ -46,9 +48,10 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
     })
   }
 
-
-  ngOnInit(): void {
-
+  ngOnInit(){
+    this.completaFraseForm = this.fb.group({
+      completa: new FormControl('')
+    })
   }
 
 
@@ -89,6 +92,17 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
       document.getElementById(consonante)?.setAttribute("style", "display:none;")
     }
 
+  }
+
+  compruebaFrase():void{
+    var formulario = this.completaFraseForm.value
+    var frase = formulario.completa
+    if(frase.toUpperCase()==this.seleccionada.frase.toUpperCase()){
+      console.log("Adivinada!")
+      this.usuario.puntuacion += 100
+      this.completaFraseForm.reset()
+      this.siguienteFrase()
+    }
   }
 
   muestraPanel(): void {

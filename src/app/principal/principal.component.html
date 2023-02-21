@@ -1,45 +1,55 @@
 <div style="margin-left: 20px; margin-right: 20px;">
-<br>
-<p class="btn btn-success">PUNTOS INICIALES: {{ usuario.puntos_iniciales }}</p><br>
-<p class="btn btn-success">PUNTOS DISPONIBLES: {{ usuario.puntuacion }}</p>
-<nav>
-  <a class="btn btn-info" [routerLink]="['/ranking/', usuario.puntuacion]">Ir al ránking</a>
-</nav>
-<!--PRUEBA BOOTSTRAP-->
-<!--PRUEBA DIEGO-->
-<div class="contenedor"> 
+  <br>
+  <p class="btn btn-success">PUNTOS INICIALES: {{ usuario.puntos_iniciales }}</p><br>
+  <p class="btn btn-success">PUNTOS DISPONIBLES: {{ usuario.puntuacion }}</p>
+  <nav>
+    <a class="btn btn-danger" [routerLink]="['/ranking/', usuario.puntuacion]">Finalizar juego</a>
+  </nav>
 
-<div class="pista">{{ seleccionada.pista_inicial }}</div>
-<div id="wrapper_panel" style="display: flex; justify-content: center;">
-  <div id="panel"></div>
-</div>
-</div>
-
-  <!--PRUEBA COMPRAR-->
-
-  <div class="contenedor_consonantes" style="border: sol
-  ;">
-   
-      <span class="consonantes" *ngFor="let consonante of consonantes" [attr.id]="consonante" (click)="comprarLetraConsonante()"
-        (click)="ocultar(consonante)">{{consonante}}</span>
+  <!--CONTENEDOR DE LA FRASE-->
+  <div class="contenedor">
+    <div class="pista">{{ seleccionada.pista_inicial }}</div>
+    <!--PANEL DE LETRAS-->
+    <div id="wrapper_panel" style="display: flex; justify-content: center;">
+      <div id="panel"></div>
+    </div>
+    <!--fin panel de letras-->
+    <div id="wrapper_completa">
+      <form [formGroup]="completaFraseForm" (ngSubmit)="compruebaFrase()">
+        <label for="frase">Completa la frase: </label>
+        <input formControlName="completa" id="completa" type="text">
+        <button class="btn btn-primary">Adivina la frase completa</button>
+        </form>
+    </div>
   </div>
-  <!--fin prueba COMPRAR-->
+  <!--fin contenedor de la frase-->
 
-  <!--Interfaz de posición fija-->
+  <!--DIV CON CONSONANTES-->
+  <div class="contenedor_consonantes" style="border: sol;">
+    <span class="consonantes" *ngFor="let consonante of consonantes" [attr.id]="consonante"
+      (click)="comprarLetraConsonante()" (click)="ocultar(consonante)">{{consonante}}</span>
+  </div>
+  <!--fin div con consonantes-->
+
+  <!--BOTON DE SALTAR POR FALTA DE PUNTOS-->
   <div class="container-fluid">
     <div class="container-fluid">
       <button class="btn btn-danger" (click)="siguienteFrase()" *ngIf="usuario.puntuacion<=0">Saltar pregunta por
         falta de puntos</button>
     </div>
   </div>
+  <!--fin boton falta de puntos-->
+
+  <!--DIV CON VOCALES-->
   <div class="contenedor_vocales">
     <h3 style="color: white;"><b>COMPRAR VOCALES</b></h3>
     <div class="vocales">
-  
-    
-      <span class="tecla" *ngFor="let vocal of vocales" [attr.id]="vocal" (click)="comprarLetraVocal()" (click)="ocultar(vocal)">{{vocal}}</span>
+
+
+      <span class="tecla" *ngFor="let vocal of vocales" [attr.id]="vocal" (click)="comprarLetraVocal()"
+        (click)="ocultar(vocal)">{{vocal}}</span>
     </div>
-     
+
   </div>
+  <!--fin div con vocales-->
 </div>
- 
