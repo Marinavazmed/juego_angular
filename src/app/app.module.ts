@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PrincipalComponent } from './principal/principal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RankingComponent } from './ranking/ranking.component';
+import { FinalComponent } from './final/final.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RankingComponent } from './ranking/ranking.component';
     HomeComponent,
     PatineteComponent,
     PrincipalComponent,
-    RankingComponent
+    RankingComponent,
+    FinalComponent
   ],
   imports: [
     BrowserModule,

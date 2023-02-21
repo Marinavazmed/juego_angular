@@ -16,7 +16,7 @@ export class RankingComponent {
   puntuacion = ""
 
   //se supone que recoge el parámetro correspondiente a la route
-  constructor(private route: ActivatedRoute, private _peticion: UsuarioService, public fb:FormBuilder ) {
+  constructor(private route: ActivatedRoute, private _peticion: UsuarioService, public fb:FormBuilder, private _router: Router) {
     this.puntuacion = this.route.snapshot.params['puntuacion'] 
   }
 
@@ -32,5 +32,7 @@ export class RankingComponent {
     //Aquí irá la petición POST al servidor. Por ahora sólo imprime el valor
     console.log(this.profileForm.value)
     this._peticion.addUsuario(this.profileForm.value).subscribe(data=>{})
+    this._router.navigate(['final']);
+
   }
 }
