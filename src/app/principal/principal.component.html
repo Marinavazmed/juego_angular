@@ -1,40 +1,29 @@
-<h4>¡AQUÍ ESTARÁ NUESTRO JUEGO!</h4>
-<p>Nuestras frases disponibles son: </p>
-<ul>
-  <li *ngFor="let frase of frases">
-    {{ frase.frase }}
-  </li>
-</ul>
-<p>La frase seleccionada aleatoriamente para esta pantalla (en array) es:</p>
-<p>{{ seleccionada.frase.split('') }}</p>
-<p>Pista:</p>
-<p>{{ seleccionada.pista_inicial }}</p>
-
-
+<div style="margin-left: 20px; margin-right: 20px;">
+<br>
+<p class="btn btn-success">PUNTOS INICIALES: {{ usuario.puntos_iniciales }}</p><br>
+<p class="btn btn-success">PUNTOS DISPONIBLES: {{ usuario.puntuacion }}</p>
+<nav>
+  <a class="btn btn-info" [routerLink]="['/ranking/', usuario.puntuacion]">Ir al ránking</a>
+</nav>
 <!--PRUEBA BOOTSTRAP-->
 <!--PRUEBA DIEGO-->
-<div id="wrapper_panel">
+<div class="contenedor"> 
+
+<div class="pista">{{ seleccionada.pista_inicial }}</div>
+<div id="wrapper_panel" style="display: flex; justify-content: center;">
   <div id="panel"></div>
 </div>
-
+</div>
 
   <!--PRUEBA COMPRAR-->
-  <p>INTERFAZ</p>
-  <p>PUNTOS INICIALES: {{ usuario.puntos_iniciales }} PUNTOS DISPONIBLES: {{ usuario.puntuacion }}</p>
-  <p>VOCALES</p>
-  <div class="roulette-container container-fluid">
-    <ul class="roulette-list">
-      <li *ngFor="let vocal of vocales" [attr.id]="vocal" (click)="comprarLetraVocal()" (click)="ocultar(vocal)">{{vocal}}</li>
-    </ul>
-  </div>
-  <p>CONSONANTES</p>
-  <div class="roulette-container container-fluid">
+
+  <div class="roulette-container container-fluid" style="border: sol
+  ;">
     <ul class="roulette-list">
       <li *ngFor="let consonante of consonantes" [attr.id]="consonante" (click)="comprarLetraConsonante()"
         (click)="ocultar(consonante)">{{consonante}}</li>
     </ul>
   </div>
-
   <!--fin prueba COMPRAR-->
 
   <!--Interfaz de posición fija-->
@@ -43,7 +32,15 @@
       <button class="btn btn-danger" (click)="siguienteFrase()" *ngIf="usuario.puntuacion<=0">Saltar pregunta por
         falta de puntos</button>
     </div>
-    <nav>
-      <a class="btn btn-info" [routerLink]="['/ranking/', usuario.puntuacion]">Ir al ránking</a>
-    </nav>
   </div>
+  <div class="contenedor_vocales">
+    <h3><b>COMPRAR VOCALES</b></h3>
+    <div class="vocales">
+  
+    
+      <span class="tecla" *ngFor="let vocal of vocales" [attr.id]="vocal" (click)="comprarLetraVocal()" (click)="ocultar(vocal)">{{vocal}}</span>
+    </div>
+     
+  </div>
+</div>
+ 

@@ -101,32 +101,28 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
     // y se crea un nuevo panel
     const padre = document.createElement('div');
     padre.id = 'panel'; // se asigna un ID al panel para que se pueda seleccionar en el futuro
-    padre.classList.add('roulette-container')
+    padre.classList.add('panel')
     panel_wrapper?.appendChild(padre)
-    let ul = document.createElement('ul');
-    padre.appendChild(ul)
+
     let frase = this.seleccionada.frase
     console.log(this.seleccionada)
     frase = frase.toUpperCase();
     let contador = 1;
 
     for (let i = 0; i < frase.length; i++) {
-      let li = document.createElement('li');
+      let li = document.createElement('span');
 
       let letra = frase[i];
       let letraPanel = document.createTextNode(letra);
       li.appendChild(letraPanel);
-      ul.appendChild(li);
+      padre.appendChild(li);
       if (letra == ' ') {
-        li.classList.add('blue');
         if (contador == 2) {
-          li.classList.add('intro');
           contador = 0;
 
         }
         contador++;
       } else {
-        li.classList.add('white');
       }
     }
   }
