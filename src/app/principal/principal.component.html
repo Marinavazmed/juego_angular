@@ -16,10 +16,9 @@
     <!--fin panel de letras-->
     <div id="wrapper_completa">
       <form [formGroup]="completaFraseForm" (ngSubmit)="compruebaFrase()">
-        <label for="frase">Completa la frase: </label>
         <input formControlName="completa" id="completa" type="text">
         <button class="btn btn-primary">Adivina la frase completa</button>
-        </form>
+      </form>
     </div>
   </div>
   <!--fin contenedor de la frase-->
