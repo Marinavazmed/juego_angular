@@ -71,11 +71,15 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
     }
   }
   comprarLetraConsonante(): void {
+    
     if (this.usuario.puntuacion > 0) {
       this.usuario.puntuacion = this.usuario.puntuacion - 1
     } else {
       this.usuario.puntuacion = 0
     }
+    
+    
+    
   }
 
   //Función para generar la siguiente frase. Funciona al 
@@ -89,7 +93,7 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
 
   ocultar(consonante: string) {
     if (this.usuario.puntuacion > 0) {
-      document.getElementById(consonante)?.setAttribute("style", "display:none;")
+      document.getElementById(consonante)?.setAttribute("style", "")
     }
 
   }
@@ -106,6 +110,37 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
   }
 
   muestraPanel(): void {
+    let frase = this.seleccionada.frase
+
+    var letrasTeclado = document.querySelectorAll('.consonantes')
+    var vocalesTeclado = document.querySelectorAll('.tecla')
+
+    function aparecer(e:any){
+      var letraID = e.currentTarget.id
+      var arrayFrase = frase.split("")
+      for(let i = 0 ; i < arrayFrase.length; i++){
+        if(letraID.toUpperCase() == arrayFrase[i]){
+          var letrasPanel = document.querySelectorAll('.ocultar')
+          for (let j = 0 ; j < letrasPanel.length; j++){
+            if (letraID.toUpperCase() == letrasPanel[j].textContent){
+              letrasPanel[j].classList.remove('ocultar')
+              
+            }
+          }
+        }
+
+      }
+    }
+
+    for(let i = 0; i< letrasTeclado.length;i++){
+      letrasTeclado[i].addEventListener('click',aparecer)
+    }
+
+    for(let i = 0; i< vocalesTeclado.length;i++){
+      vocalesTeclado[i].addEventListener('click',aparecer)
+    }
+
+
     // aquí se comprueba si el panel existe y se elimina
     var panel_wrapper = document.getElementById('wrapper_panel');
     const panelExistente = this.panel.nativeElement.querySelector('#panel');
@@ -117,26 +152,33 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
     padre.id = 'panel'; // se asigna un ID al panel para que se pueda seleccionar en el futuro
     padre.classList.add('panel')
     panel_wrapper?.appendChild(padre)
+    let ul = document.createElement('ul');
 
-    let frase = this.seleccionada.frase
+    padre.appendChild(ul)
     console.log(this.seleccionada)
     frase = frase.toUpperCase();
     let contador = 1;
 
     for (let i = 0; i < frase.length; i++) {
-      let li = document.createElement('span');
+      let span = document.createElement('span');
+      span.classList.add('ocultar')
+      let li = document.createElement('li');
 
       let letra = frase[i];
       let letraPanel = document.createTextNode(letra);
-      li.appendChild(letraPanel);
-      padre.appendChild(li);
+      span.appendChild(letraPanel);
+      ul.appendChild(li)
+      li.appendChild(span)
+
       if (letra == ' ') {
         if (contador == 2) {
           contador = 0;
-
+          li.classList.add('blue')
         }
         contador++;
       } else {
+        li.classList.add('white')
+
       }
     }
   }

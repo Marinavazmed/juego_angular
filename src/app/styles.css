@@ -1,9 +1,9 @@
 body{
-  background-image: url(https://img.bekia.es/articulos/portada/124000/124779.jpg);
-  background-repeat: round;
+  background-image: url(https://www.b-ar.eu/wp-content/uploads/2020/03/bAR_2008_Goya_T_02.jpg);
+  background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: fixed;
-
+  
 }
 .roulette-container {
   font-family: monospace;
@@ -39,28 +39,38 @@ body{
   
   .blue{
     padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
     display: inline-block;
-    background-color: blue;
   }
   .white{
+    height: 98px;
+    width: 62px;
     padding: 10px;
-    font-size: 2em;
+    font-size: 52px;
     margin: 10px;
     display: inline-block;
-    background-color: grey;
+    border-radius: 10px;
+    background-color:white;
+    text-align: center;
+    box-shadow: 16px -8px 10px #000;
   }
+  li{
+    list-style-type: none;
 
+  }
  
 
   .panel {
     justify-content: center;
     align-items: center;
-    width: 980px;
-    height: 400px;
+    width: 1500px;
+    height: 500px;
     border-radius: 10px;
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
+    
   }
 
   .contenedor{
@@ -80,29 +90,25 @@ body{
     font-size: 2em;
     border-radius: 10px;
     margin-bottom: 20px;
-    box-shadow: 16px -8px 10px #000;
+
     
   }
-  
+  /*
   .panel span {
     display: inline-block;
     width: 80px;
     height: 80px;
-    line-height: 80px;
+   
     margin: 10px;
     border-radius: 10px;
     background-color:white;
     color: #000000;
     text-transform: uppercase;
-    text-align: center;
+  
     cursor: pointer;
     box-shadow: 16px -8px 10px #000;
   }
-  
-  .panel span:hover {
-    background-color:chocolate;
-    color: #ffffff;
-  }
+  */
   .contenedor_vocales{
       display: flex;
       flex-direction: column;
@@ -150,8 +156,9 @@ body{
     margin-right: 200px;
     justify-content: center;
   }
+  
   .contenedor_consonantes span{
-    font-size: 4em;
+    font-size: 2em;
     border: solid;
     margin-left: 30px;
     margin-right: 30px;
@@ -159,7 +166,6 @@ body{
     width: 100px;
     text-align: center;
     cursor: pointer;
-    height: 100px;
     border-radius: 2em;
     margin-bottom: 20px;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -170,4 +176,7 @@ body{
     transform: scale(1.2);
     box-shadow: 16px -8px 10px #000;
   }
- 
+   
+ .ocultar{
+  visibility: hidden;
+ }
