@@ -64,7 +64,7 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
   //Compra una letra, gasta puntos del usuario. 
   //Esta función está en onclick
   comprarLetraVocal(): void {
-    if (this.usuario.puntuacion > 0) {
+    if (this.usuario.puntuacion >= 25) {
       this.usuario.puntuacion = this.usuario.puntuacion - 25
     } else {
       this.usuario.puntuacion = 0
@@ -72,7 +72,7 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
   }
   comprarLetraConsonante(): void {
     
-    if (this.usuario.puntuacion > 0) {
+    if (this.usuario.puntuacion >= 1) {
       this.usuario.puntuacion = this.usuario.puntuacion - 1
     } else {
       this.usuario.puntuacion = 0
