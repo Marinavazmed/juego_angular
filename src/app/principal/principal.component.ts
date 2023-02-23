@@ -119,7 +119,7 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
           if ((letraID.toUpperCase() == letrasPanel[j].textContent) && this.usuario.puntuacion>0){
             letrasPanel[j].classList.remove('ocultar')
             if(!this.vocales.includes(letraID)){
-              this.usuario.puntuacion = this.usuario.puntuacion +10
+              this.usuario.puntuacion = this.usuario.puntuacion +5
             }
 
           }
@@ -127,6 +127,16 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
       }
 
     }
+    this.compruebaCompleta()
+  }
+  
+  compruebaCompleta(){
+    var ocultas = document.querySelectorAll('.ocultar')
+    var arr = Array.from(ocultas).filter((letra:any) => letra.textContent!=" ")
+    if(arr.length==0){
+      this.siguienteFrase()
+    }
+
   }
 
   muestraPanel(): void {
