@@ -118,6 +118,10 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
           console.log("puntuacion del usuario: " + this.usuario.puntuacion)
           if ((letraID.toUpperCase() == letrasPanel[j].textContent) && this.usuario.puntuacion>0){
             letrasPanel[j].classList.remove('ocultar')
+            if(!this.vocales.includes(letraID)){
+              this.usuario.puntuacion = this.usuario.puntuacion +10
+            }
+
           }
         }
       }
