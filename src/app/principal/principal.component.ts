@@ -97,7 +97,7 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
 
   ocultar(consonante: string) {
     if (this.usuario.puntuacion > 0) {
-      document.getElementById(consonante)?.setAttribute("style", "")
+      document.getElementById(consonante)?.setAttribute("style", "background-color:orange;")
     }
 
   }

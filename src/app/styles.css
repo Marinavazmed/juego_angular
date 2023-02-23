@@ -74,10 +74,13 @@ body{
   }
 
   .contenedor{
+    position: relative;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: -150px;
   }
 
   .pista{
@@ -91,91 +94,118 @@ body{
     border-radius: 10px;
     margin-bottom: 20px;
 
+  }
+  .contenedor_vocales {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
   }
-  /*
-  .panel span {
-    display: inline-block;
-    width: 80px;
-    height: 80px;
-   
-    margin: 10px;
-    border-radius: 10px;
-    background-color:white;
-    color: #000000;
-    text-transform: uppercase;
   
-    cursor: pointer;
-    box-shadow: 16px -8px 10px #000;
-  }
-  */
-  .contenedor_vocales{
-      display: flex;
-      flex-direction: column;
-  }
-
   .tecla {
-    padding: 0.1em 0.6em;
-    border: 1px solid #ccc;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f7f7f7;
-    color: #333;
-    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 2px #fff inset;
-    border-radius: 3px;
+    text-transform: uppercase;
+    padding: 0.1em 0.3em;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+    color: black;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     display: inline-block;
-    margin: 0px 0.1em;
-    text-shadow: 0px 1px 0px #fff;
+    text-shadow: 1px 1px #333;
     line-height: 1.4;
     white-space: nowrap;
-    font-size: 12px;
+    font-size: 1.5em;
     cursor: pointer;
-    font-size: 2em;
-    width: 100px;
+    width: 50px;
+    height: 50px;
     text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid black;
+
   }
+  
+  .tecla:first-child{
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+  }
+  
+  .tecla:last-child {
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
+  
   .tecla:hover {
-    background-color: transparent;
-    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   }
-  .vocales{
+  
+  .vocales {
     width: 300px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 20px;
-    border-radius: 10px;
   }
-  .contenedor_consonantes{
-    margin-top: 80px;
-    margin-bottom: 250px;
+  
+  .contenedor_consonantes {
     display: flex;
     flex-wrap: wrap;
     padding: 0;
-    height: 200px;
-    margin-left: 200px;
-    margin-right: 200px;
-    justify-content: center;
+    position: absolute;
+    bottom:0;
+    left: 20%;
+    right: 20%;
   }
   
-  .contenedor_consonantes span{
-    font-size: 2em;
-    border: solid;
-    margin-left: 30px;
-    margin-right: 30px;
-    background-color:white;
-    width: 100px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 2em;
-    margin-bottom: 20px;
-    transition: transform 0.2s, box-shadow 0.2s;
+  .contenedor_consonantes span {
     text-transform: uppercase;
-    font-weight: bold;
+    margin: 1px;
+    padding: 0.3em 0.5em;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+    color: black;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    text-shadow: 1px 1px #333;
+    line-height: 1.4;
+    white-space: nowrap;
+    font-size: 1.5em;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid black;
   }
-  .contenedor_consonantes span:hover{
+  
+  .contenedor_consonantes span:hover {
     transform: scale(1.2);
     box-shadow: 16px -8px 10px #000;
   }
+  .contenedor_consonantes span:first-child{
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+  }
+  
+  .contenedor_consonantes span:last-child {
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+  }
+  
+  .contenedor_consonantes span:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  
+
    
  .ocultar{
   visibility: hidden;
