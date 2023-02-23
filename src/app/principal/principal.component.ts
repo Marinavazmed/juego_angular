@@ -88,10 +88,11 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
     this.frases=this.frases.filter((frase:any) => frase!=this.seleccionada)
     if(this.frases.length==0){
       this._router.navigate(['ranking', this.usuario.puntuacion]);
+    }else{
+      this.seleccionada = this.getAleatoria()
+      this.pista = this.seleccionada.pista_inicial
+      this.muestraPanel()
     }
-    this.seleccionada = this.getAleatoria()
-    this.pista = this.seleccionada.pista_inicial
-    this.muestraPanel()
   }
 
   ocultar(consonante: string) {
