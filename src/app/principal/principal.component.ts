@@ -77,9 +77,7 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
     } else {
       this.usuario.puntuacion = 0
     }
-    
-    
-    
+
   }
 
   //Función para generar la siguiente frase. Funciona al 
@@ -109,38 +107,26 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
     }
   }
 
-  muestraPanel(): void {
-    let frase = this.seleccionada.frase
-
-    var letrasTeclado = document.querySelectorAll('.consonantes')
-    var vocalesTeclado = document.querySelectorAll('.tecla')
-
-    function aparecer(e:any){
-      var letraID = e.currentTarget.id
-      var arrayFrase = frase.split("")
-      for(let i = 0 ; i < arrayFrase.length; i++){
-        if(letraID.toUpperCase() == arrayFrase[i]){
-          var letrasPanel = document.querySelectorAll('.ocultar')
-          for (let j = 0 ; j < letrasPanel.length; j++){
-            if (letraID.toUpperCase() == letrasPanel[j].textContent){
-              letrasPanel[j].classList.remove('ocultar')
-              
-            }
+  aparecer(e:any){
+    var letraID = e.currentTarget.id
+    console.log(letraID)
+    var arrayFrase = this.seleccionada.frase.split("")
+    for(let i = 0 ; i < arrayFrase.length; i++){
+      if(letraID.toUpperCase() == arrayFrase[i].toUpperCase()){
+        var letrasPanel = document.querySelectorAll('.ocultar')
+        for (let j = 0 ; j < letrasPanel.length; j++){
+          console.log("puntuacion del usuario: " + this.usuario.puntuacion)
+          if ((letraID.toUpperCase() == letrasPanel[j].textContent) && this.usuario.puntuacion>0){
+            letrasPanel[j].classList.remove('ocultar')
           }
         }
-
       }
+
     }
+  }
 
-    for(let i = 0; i< letrasTeclado.length;i++){
-      letrasTeclado[i].addEventListener('click',aparecer)
-    }
-
-    for(let i = 0; i< vocalesTeclado.length;i++){
-      vocalesTeclado[i].addEventListener('click',aparecer)
-    }
-
-
+  muestraPanel(): void {
+    let frase = this.seleccionada.frase
     // aquí se comprueba si el panel existe y se elimina
     var panel_wrapper = document.getElementById('wrapper_panel');
     const panelExistente = this.panel.nativeElement.querySelector('#panel');

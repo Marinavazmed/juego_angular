@@ -26,7 +26,7 @@
   <!--DIV CON CONSONANTES-->
   <div class="contenedor_consonantes" style="border: sol;">
     <span class="consonantes" *ngFor="let consonante of consonantes" [attr.id]="consonante"
-      (click)="comprarLetraConsonante()" (click)="ocultar(consonante)">{{consonante}}</span>
+      (click)="comprarLetraConsonante()" (click)="ocultar(consonante)" (click)="aparecer($event)">{{consonante}}</span>
   </div>
   <!--fin div con consonantes-->
 
@@ -45,7 +45,7 @@
     <div class="vocales">
 
 
-      <span class="tecla" *ngFor="let vocal of vocales" [attr.id]="vocal" (click)="comprarLetraVocal()"
+      <span class="tecla" *ngFor="let vocal of vocales" [attr.id]="vocal" (click)="comprarLetraVocal()" (click)="aparecer($event)"
         (click)="ocultar(vocal)">{{vocal}}</span>
     </div>
 
