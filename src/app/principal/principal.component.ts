@@ -3,6 +3,7 @@ import { FraseService } from '../frase-service.service';
 import { UsuarioService } from '../usuario-service.service';
 import { HttpClient } from '@angular/common/http';
 import { Frase } from './frase';
+import {Router} from '@angular/router';
 import { Usuario } from './usuario';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
@@ -29,7 +30,7 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
   public padre: any
   public completaFraseForm!: FormGroup;
 
-  constructor(private http: HttpClient, private _peticion: FraseService, private panel: ElementRef, public fb:FormBuilder) {
+  constructor(private http: HttpClient, private _peticion: FraseService, private panel: ElementRef, public fb:FormBuilder, private _router: Router) {
     this.frases = []
     this.seleccionada = new Frase("", "")
     this.pista = ""
@@ -84,6 +85,10 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
   //usar el botón "saltar a siguiente pregunta por falta de puntos"
   //Y opción de reutilizar esta función al adivinar la frase
   siguienteFrase(): void {
+    this.frases=this.frases.filter((frase:any) => frase!=this.seleccionada)
+    if(this.frases.length==0){
+      this._router.navigate(['ranking', this.usuario.puntuacion]);
+    }
     this.seleccionada = this.getAleatoria()
     this.pista = this.seleccionada.pista_inicial
     this.muestraPanel()
