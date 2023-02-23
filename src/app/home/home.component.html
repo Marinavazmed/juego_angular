@@ -1,23 +1,30 @@
-<head>
-    <title>Mi página web</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Enlace al archivo CSS de Bootstrap -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-</head>
-
-<nav>
-    <!-- Demo header-->
-
-
-    <div class="text-center">
-        <!-- Animated button -->
-        <header class="py-5">
-            <h1 class="textoinicio"> PINCHA ESTE BOTÓN PARA INICIAR EL JUEGO !</h1>
-
-        </header>
-        <a [routerLink]="['principal']" (click)="muestraNombre()" class="animated-btn text-white iconoplay"><i class="fa fa-play"></i></a>
-    </div>
-
-</nav>
-<router-outlet></router-outlet>
+<div class="id1">
+    <!-- Contenido de tu componente -->
+    <head>
+        <title>Mi página web</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Enlace al archivo CSS de Bootstrap -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    </head>
+        
+    </body>
+    <nav>
+        <!-- Demo header-->
+    
+    
+        <div class="text-center">
+            <!-- Animated button -->
+            <header class="py-5">
+                <h1 class="textoinicio"> PINCHA ESTE BOTÓN PARA INICIAR EL JUEGO !</h1>
+    
+            </header>
+            <a [routerLink]="['principal']" (click)="muestraNombre()" class="animated-btn text-white iconoplay"><i class="fa fa-play"></i></a>
+            <br><br><br>
+            <p class="datocurioso"></p>
+              </div>
+    
+    </nav>
+    <router-outlet></router-outlet>
+    
+</div>

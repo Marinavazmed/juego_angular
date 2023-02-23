@@ -221,9 +221,49 @@ body{
   animation-delay: 0.5s;
 }
 
-.textoinicio{
+.textoinicio {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.1em;
+  margin-top: 3rem;
   color: white;
+  text-shadow: 2px 2px 0 #bbb, 3px 3px 0 #999, 4px 4px 0 #777, 5px 5px 0 #555, 6px 6px 10px rgba(0,0,0,0.3);
 }
+.curiosidades{
+  color:white;
+  margin-left: 200px; 
+  margin-right: 200px;
+  font-size: 2em;
+}
+.id1{
+  background: url(https://img.freepik.com/vector-gratis/realista-alfombra-roja-pedestal-iluminacion-cercas-barrera-cuerda-terciopelo_1284-31850.jpg?w=2000&t=st=1677180592~exp=1677181192~hmac=e15b8d18e043987faeb387571eec00f0349714508f6e82e3d4fb3398a7fbc47e) !important;
+  background-size: cover;
+  height: 100vh;
+  background-repeat: no-repeat;
+
+}
+
+
+
+.datocurioso::before {
+  content: "Sabías que..."; /* Texto del dato curioso */
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilo de la información adicional */
+.datocurioso::after {
+  content: "Los Premios Goya son los galardones más importantes del cine español. Se entregan anualmente desde 1987 por la Academia de las Artes y las Ciencias Cinematográficas de España para premiar las mejores producciones cinematográficas del año.";
+  font-style: italic;
+  color: #444;
+  margin-left: 400px;
+  margin-right: 400px;
+  display: block;
+  margin-top: 10px;
+}
+
+
 @keyframes ripple-1 {
   0% {
       transform: scale(1);
