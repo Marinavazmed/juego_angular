@@ -1,6 +1,10 @@
-<p>Página de ránking</p>
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-<label for="username">Nombre de usuario: </label>
-<input formControlName="usuario" id="username" type="text">
-<button class="btn btn-primary">Enviar puntuación</button>
-</form>
+<div style="display: flex; flex-direction: column; height: 800px; border: solid; justify-content: center; align-items: center;">
+<h1 style="color: white; font-family: Georgia, 'Times New Roman', Times, serif; text-align: center;">RANKING</h1>
+<div class="ranking" style="display: flex; justify-content: center; align-items: center;">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label style="color: aliceblue; font-weight: bold;" for="username">Nombre de usuario: </label>
+    <input style="margin-left: 20px;" formControlName="usuario" id="username" type="text">
+    <button style="margin-left: 20px;" class="btn btn-primary">Enviar puntuación</button>
+    </form>
+</div>
+</div>

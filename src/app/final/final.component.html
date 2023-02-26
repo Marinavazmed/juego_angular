@@ -1,4 +1,17 @@
-<p>Esta es la página final, donde se muestra el ránking de jugadores</p>
-<p *ngFor="let usuario of usuarios">
-    <span>{{usuario.usuario}} {{usuario.puntuacion}}</span>
-</p>
+<h1 style="color: white; font-family: Georgia, 'Times New Roman', Times, serif; text-align: center;">TABLA RANKINGS</h1>
+
+<table class="table">
+    <thead>
+      <tr class="table-light">
+        <th scope="col">Nombre</th>
+        <th scope="col">Puntos Conseguidos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-dark" *ngFor="let usuario of usuarios">
+        <td>{{usuario.usuario}}</td>
+        <td>{{usuario.puntuacion}}</td>
+      </tr>
+    </tbody>
+  </table>
+
