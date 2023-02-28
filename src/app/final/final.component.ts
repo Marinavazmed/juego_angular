@@ -22,5 +22,9 @@ export class FinalComponent {
     this._peticion.getUsuarios().subscribe(data => {
       this.usuarios = data
     })
+    if(this.usuarios.length!=0){
+      this.refresh()
+    }
   }
+  refresh(): void { window.location.reload(); }
 }

@@ -93,6 +93,13 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
       this.pista = this.seleccionada.pista_inicial
       this.muestraPanel()
     }
+
+    for(let i = 0;i<this.vocales.length;i++){
+      document.getElementById(this.vocales[i])?.setAttribute("style", "background-color:white")
+    }
+    for(let i = 0;i<this.consonantes.length;i++){
+      document.getElementById(this.consonantes[i])?.setAttribute("style", "background-color:white")
+    }
   }
 
   ocultar(consonante: string) {
@@ -141,6 +148,7 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
     var arr = Array.from(ocultas).filter((letra:any) => letra.textContent!=" ")
     if(arr.length==0){
       this.siguienteFrase()
+      this.usuario.puntuacion = this.usuario.puntuacion + 20
     }
 
   }

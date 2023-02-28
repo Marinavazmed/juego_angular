@@ -1,9 +1,9 @@
 <div style="margin-left: 20px; margin-right: 20px;">
   <br>
-  <p class="btn btn-success">PUNTOS INICIALES: {{ usuario.puntos_iniciales }}</p><br>
+  <p class="btn btn-success">¡VIGILA TUS PUNTOS!</p><br>
   <p class="btn btn-success">PUNTOS DISPONIBLES: {{ usuario.puntuacion }}</p>
   <nav>
-    <a class="btn btn-danger" [routerLink]="['/ranking/', usuario.puntuacion]">Finalizar juego</a>
+    <a class="btn btn-danger" [routerLink]="['/ranking', usuario.puntuacion]">Finalizar juego</a>
   </nav>
 
   <!--CONTENEDOR DE LA FRASE-->
