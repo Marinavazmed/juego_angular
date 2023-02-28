@@ -23,8 +23,7 @@ export class FinalComponent {
       this.usuarios = data
     })
     if(this.usuarios.length!=0){
-      this.refresh()
+      window.location.reload();
     }
   }
-  refresh(): void { window.location.reload(); }
 }

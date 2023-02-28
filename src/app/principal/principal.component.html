@@ -3,7 +3,7 @@
   <p class="btn btn-success">¡VIGILA TUS PUNTOS!</p><br>
   <p class="btn btn-success">PUNTOS DISPONIBLES: {{ usuario.puntuacion }}</p>
   <nav>
-    <a class="btn btn-danger" [routerLink]="['/ranking', usuario.puntuacion]">Finalizar juego</a>
+    <a class="btn btn-info">¡Buena suerte!</a>
   </nav>
 
   <!--CONTENEDOR DE LA FRASE-->
@@ -35,6 +35,8 @@
     <div class="container-fluid">
       <button class="btn btn-danger" (click)="siguienteFrase()" *ngIf="usuario.puntuacion<=0">Saltar pregunta por
         falta de puntos</button>
+        <button class="btn btn-info" (click)="siguienteFrase()" *ngIf="usuario.puntuacion>0">Siguiente pregunta</button>
+        <a class="btn btn-danger ms-2" [routerLink]="['/ranking/', usuario.puntuacion ]">Finalizar juego</a>
     </div>
   </div>
   <!--fin boton falta de puntos-->
